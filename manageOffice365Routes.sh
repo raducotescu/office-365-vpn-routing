@@ -6,8 +6,8 @@
 #                                                                             #
 # Requirements:                                                               #
 # 1. jq - https://stedolan.github.io/jq/                                      #
+# 2. sudo - changing the routing table requires root privileges               #
 ###############################################################################
-
 
 # see https://docs.microsoft.com/en-us/office365/enterprise/office-365-ip-web-service for more info about how to generate the
 # ClientRequestId
