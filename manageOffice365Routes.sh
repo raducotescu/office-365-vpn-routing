@@ -14,7 +14,7 @@
 CLIENT_REQUEST_ID="" 
 
 function addRoutes() {
-    GATEWAY=`netstat -n -r -f inet | grep default | grep -v utun0 | tail -1 | awk '{ print $2 }'`
+    GATEWAY=`netstat -n -r -f inet | grep default | grep -v 'link#' | tail -1 | awk '{ print $2 }'`
     echo $GATEWAY > gateway.input
     rm ips.input
     for ip in `curl -s https://endpoints.office.com/endpoints/worldwide\?ClientRequestId\=${CLIENT_REQUEST_ID} | /usr/local/bin/jq -r '.[].ips|arrays|.[]' | egrep -E "[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}(\/[0-9]{1,3})?"`; do
